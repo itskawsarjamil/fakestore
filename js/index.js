@@ -28,14 +28,27 @@ setAllMenu();
 
 document.getElementById("searchbox").addEventListener("keypress", async (event) => {
 
+    document.getElementById("spinner").classList.remove("hidden");
+    document.getElementById("not-found").innerHTML ="";
     if (event.key == "Enter") {
         console.log("pressed");
         const container = document.getElementById("products-container");
         container.innerHTML = '';
         const searchValue = event.target.value;
         const data = await loadAllProduct();
-        data.forEach(product => {
-            if (product.category.includes(searchValue)) {
+        const dataArr = data.filter(product => product.category.includes(searchValue))
+        // console.log(dataArr);
+        document.getElementById("spinner").classList.add("hidden");
+        if (dataArr.length == 0) {
+            document.getElementById("not-found").innerHTML =
+                `
+            <h1 class="text-yellow-600 text-center text-4xl m-5">Not Found</h1>
+            `;
+            console.log("not found");
+            return;
+        }
+        else {
+            dataArr.forEach(product => {
                 const { title, image, category, description } = product;
                 const div = document.createElement("div");
                 div.innerHTML = `
@@ -51,11 +64,9 @@ document.getElementById("searchbox").addEventListener("keypress", async (event) 
               </div>
                 `;
                 container.appendChild(div);
-            }
-            else{
-                console.log("not found");
-            }
-        });
+            });
+        }
+
     }
 })
 
