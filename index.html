@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Api</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.46.1/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <progress id="progress1" class="progress w-full"></progress>
+    <header>
+        <div class="form-control w-1/2 mx-auto max-w-xs">
+            <label class="label">
+                <span class="label-text">Search Your Product</span>
+                <span class="label-text-alt">press <kbd class="kbd kbd-md">enter</kbd>
+                </span>
+            </label>
+            <input id="searchbox" type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+
+        </div>
+    </header>
+    <main class="p-5">
+        <div class="flex gap-4">
+            <div class="flex-none ">
+                <ul id="category" class="menu w-56 bg-orange-900 text-secondary-content p-2 rounded-box">
+
+                </ul>
+            </div>
+            <div class="grow">
+                <div id="products-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- modal -->
+
+    <input type="checkbox" id="my-modal-3" class="modal-toggle" />
+    <div class="modal">
+        <div class="modal-box relative">
+            <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+            <div id="modal-container">
+                <h3 class="text-lg font-bold">Congratulations random Internet user!</h3>
+                <p class="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for
+                    free!</p>
+            </div>
+        </div>
+    </div>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
